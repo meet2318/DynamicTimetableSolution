@@ -1,0 +1,28 @@
+﻿@model TimeTableResultViewModel
+@{
+    ViewBag.Title = "Generated Timetable";
+}
+
+<h2 class="text-center mb-4">Generated Timetable</h2>
+
+<table class="table table-bordered text-center">
+    <thead class="table-dark">
+        <tr>
+            @for (int day = 1; day <= Model.TimeTable.First().Count; day++)
+            {
+                <th>Day @day</th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var row in Model.TimeTable)
+        {
+            <tr>
+                @foreach (var subject in row)
+                {
+                    <td>@subject</td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>
